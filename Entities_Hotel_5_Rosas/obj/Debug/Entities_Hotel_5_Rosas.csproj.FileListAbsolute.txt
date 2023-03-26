@@ -1,0 +1,8 @@
+C:\Users\josep\Downloads\Proyecto\Entities_Hotel_5_Rosas\bin\Debug\Entities_Hotel_5_Rosas.dll
+C:\Users\josep\Downloads\Proyecto\Entities_Hotel_5_Rosas\bin\Debug\Entities_Hotel_5_Rosas.pdb
+C:\Users\josep\Downloads\Proyecto\Entities_Hotel_5_Rosas\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\josep\Downloads\Proyecto\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.AssemblyReference.cache
+C:\Users\josep\Downloads\Proyecto\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.CoreCompileInputs.cache
+C:\Users\josep\Downloads\Proyecto\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.CopyComplete
+C:\Users\josep\Downloads\Proyecto\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.dll
+C:\Users\josep\Downloads\Proyecto\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.pdb
