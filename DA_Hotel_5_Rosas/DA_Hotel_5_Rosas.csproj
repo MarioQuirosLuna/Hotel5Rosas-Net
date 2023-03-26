@@ -120,6 +120,8 @@
     <Compile Include="DA_Hotel_5_Rosas_Imagen.cs" />
     <Compile Include="DA_Hotel_5_Rosas_Galeria.cs" />
     <Compile Include="DA_Hotel_5_Rosas_Temporada.cs" />
+    <Compile Include="DA_Hotel_5_Rosas_Telefono.cs" />
+    <Compile Include="DA_Hotel_5_Rosas_Correo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

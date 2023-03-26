@@ -50,6 +50,12 @@ namespace Hotel_5_Rosas_Proyect
             services.AddDbContext<DA_Hotel_5_Rosas_Temporada>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SQL")));
 
+            services.AddDbContext<DA_Hotel_5_Rosas_Telefono>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SQL")));
+
+            services.AddDbContext<DA_Hotel_5_Rosas_Correo>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SQL")));
+
           
         }
 
