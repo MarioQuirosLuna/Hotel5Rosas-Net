@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Entities_Hotel_5_Rosas.Entity_Pagina>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Informacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FK_Hotel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Informacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FK_Hotel)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PK_Pagina">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PK_Pagina">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PK_Pagina">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

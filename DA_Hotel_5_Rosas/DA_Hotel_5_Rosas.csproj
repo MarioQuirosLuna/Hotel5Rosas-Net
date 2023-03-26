@@ -114,6 +114,12 @@
   <ItemGroup>
     <Compile Include="DA_Hotel_5_Rosas_Usuario.cs" />
     <Compile Include="DA_Hotel_5_Rosas_Cliente.cs" />
+    <Compile Include="DA_Hotel_5_Rosas_Administrador.cs" />
+    <Compile Include="DA_Hotel_5_Rosas_Publicidad.cs" />
+    <Compile Include="DA_Hotel_5_Rosas_Pagina.cs" />
+    <Compile Include="DA_Hotel_5_Rosas_Imagen.cs" />
+    <Compile Include="DA_Hotel_5_Rosas_Galeria.cs" />
+    <Compile Include="DA_Hotel_5_Rosas_Temporada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

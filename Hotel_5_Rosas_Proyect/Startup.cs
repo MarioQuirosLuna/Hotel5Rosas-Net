@@ -34,6 +34,23 @@ namespace Hotel_5_Rosas_Proyect
 
             services.AddDbContext<DA_Hotel_5_Rosas_Cliente>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SQL")));
+
+            services.AddDbContext<DA_Hotel_5_Rosas_Administrador>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SQL")));
+
+            services.AddDbContext<DA_Hotel_5_Rosas_Publicidad>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SQL")));
+
+            services.AddDbContext<DA_Hotel_5_Rosas_Pagina>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SQL")));
+
+            services.AddDbContext<DA_Hotel_5_Rosas_Galeria>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SQL")));
+
+            services.AddDbContext<DA_Hotel_5_Rosas_Temporada>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SQL")));
+
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
