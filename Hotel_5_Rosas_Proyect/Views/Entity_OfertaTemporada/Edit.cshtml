@@ -1,0 +1,44 @@
+﻿@model Entities_Hotel_5_Rosas.Entity_OfertaTemporada
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Entity_OfertaTemporada</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PK_Oferta_Temporada" />
+            <div class="form-group">
+                <label asp-for="FK_Temporada" class="control-label"></label>
+                <input asp-for="FK_Temporada" class="form-control" />
+                <span asp-validation-for="FK_Temporada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FK_Tipo_Habitacion" class="control-label"></label>
+                <input asp-for="FK_Tipo_Habitacion" class="form-control" />
+                <span asp-validation-for="FK_Tipo_Habitacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Oferta" class="control-label"></label>
+                <input asp-for="Oferta" class="form-control" />
+                <span asp-validation-for="Oferta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
