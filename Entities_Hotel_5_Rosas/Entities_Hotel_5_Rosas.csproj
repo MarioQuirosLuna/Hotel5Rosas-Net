@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity_Administrador.cs" />
+    <Compile Include="Entity_Caracteristicas.cs" />
     <Compile Include="Entity_Cliente.cs" />
     <Compile Include="Entity_Correo.cs" />
     <Compile Include="Entity_Facilidad.cs" />
