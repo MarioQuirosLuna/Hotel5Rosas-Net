@@ -54,6 +54,7 @@
     <Compile Include="Entity_Imagen.cs" />
     <Compile Include="Entity_Pagina.cs" />
     <Compile Include="Entity_Publicidad.cs" />
+    <Compile Include="Entity_Reserva.cs" />
     <Compile Include="Entity_Telefono.cs" />
     <Compile Include="Entity_Temporada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

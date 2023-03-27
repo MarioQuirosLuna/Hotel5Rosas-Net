@@ -124,6 +124,7 @@
     <Compile Include="DA_Hotel_5_Rosas_Correo.cs" />
     <Compile Include="DA_Hotel_5_Rosas_Facilidad.cs" />
     <Compile Include="DA_Hotel_5_Rosas_Hotel.cs" />
+    <Compile Include="DA_Hotel_5_Rosas_Reserva.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
