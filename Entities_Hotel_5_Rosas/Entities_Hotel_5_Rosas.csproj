@@ -50,6 +50,7 @@
     <Compile Include="Entity_Correo.cs" />
     <Compile Include="Entity_Facilidad.cs" />
     <Compile Include="Entity_Galeria.cs" />
+    <Compile Include="Entity_Habitacion.cs" />
     <Compile Include="Entity_Hotel.cs" />
     <Compile Include="Entity_Imagen.cs" />
     <Compile Include="Entity_Pagina.cs" />

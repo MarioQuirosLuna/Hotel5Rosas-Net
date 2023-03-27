@@ -65,6 +65,9 @@ namespace Hotel_5_Rosas_Proyect
             services.AddDbContext<DA_Hotel_5_Rosas_Reserva>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SQL")));
 
+            services.AddDbContext<DA_Hotel_5_Rosas_Habitacion>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("SQL")));
+
           
         }
 

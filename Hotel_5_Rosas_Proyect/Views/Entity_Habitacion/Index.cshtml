@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Entities_Hotel_5_Rosas.Entity_Habitacion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FK_Tipo_Habitacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FK_Hotel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero_Habitacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FK_Tipo_Habitacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FK_Hotel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero_Habitacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PK_Habitacion">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PK_Habitacion">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PK_Habitacion">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

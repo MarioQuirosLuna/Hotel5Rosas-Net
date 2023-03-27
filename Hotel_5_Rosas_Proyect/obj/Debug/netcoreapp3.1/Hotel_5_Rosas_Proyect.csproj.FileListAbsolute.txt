@@ -575,3 +575,8 @@ C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Hotel_5_Rosas_
 C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Hotel_5_Rosas_Proyect\obj\Debug\netcoreapp3.1\Razor\Views\Entity_Reserva\Details.cshtml.g.cs
 C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Hotel_5_Rosas_Proyect\obj\Debug\netcoreapp3.1\Razor\Views\Entity_Reserva\Edit.cshtml.g.cs
 C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Hotel_5_Rosas_Proyect\obj\Debug\netcoreapp3.1\Razor\Views\Entity_Reserva\Index.cshtml.g.cs
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Hotel_5_Rosas_Proyect\obj\Debug\netcoreapp3.1\Razor\Views\Entity_Habitacion\Create.cshtml.g.cs
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Hotel_5_Rosas_Proyect\obj\Debug\netcoreapp3.1\Razor\Views\Entity_Habitacion\Delete.cshtml.g.cs
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Hotel_5_Rosas_Proyect\obj\Debug\netcoreapp3.1\Razor\Views\Entity_Habitacion\Details.cshtml.g.cs
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Hotel_5_Rosas_Proyect\obj\Debug\netcoreapp3.1\Razor\Views\Entity_Habitacion\Edit.cshtml.g.cs
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Hotel_5_Rosas_Proyect\obj\Debug\netcoreapp3.1\Razor\Views\Entity_Habitacion\Index.cshtml.g.cs
