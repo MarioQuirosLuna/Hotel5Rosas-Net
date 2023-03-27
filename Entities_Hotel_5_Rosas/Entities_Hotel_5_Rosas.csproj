@@ -48,6 +48,7 @@
     <Compile Include="Entity_Administrador.cs" />
     <Compile Include="Entity_Cliente.cs" />
     <Compile Include="Entity_Correo.cs" />
+    <Compile Include="Entity_Facilidad.cs" />
     <Compile Include="Entity_Galeria.cs" />
     <Compile Include="Entity_Imagen.cs" />
     <Compile Include="Entity_Pagina.cs" />
