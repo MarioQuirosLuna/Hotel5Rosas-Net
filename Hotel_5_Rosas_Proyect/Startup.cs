@@ -32,13 +32,12 @@ namespace Hotel_5_Rosas_Proyect
             services.AddCors();
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(
-                    builder =>
-                    {
-                        builder.WithOrigins("http://localhost:44343")
-                                            .AllowAnyHeader()
-                                            .AllowAnyMethod();
-                    });
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.SetIsOriginAllowed(_ => true)
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+                });
             });
 
             services.AddControllers();
