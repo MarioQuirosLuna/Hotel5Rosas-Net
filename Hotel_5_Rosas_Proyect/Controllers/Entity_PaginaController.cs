@@ -8,6 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using Entities_Hotel_5_Rosas;
 using Hotel_5_Rosas_Proyect.Data;
 using System.Web.Http.Cors;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Hotel_5_Rosas_Proyect.Controllers
 {
@@ -29,6 +33,32 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         public async Task<IEnumerable<Entities_Hotel_5_Rosas.Entity_Pagina>> GetPages()
         {
             return await _context.Set<Entities_Hotel_5_Rosas.Entity_Pagina>().ToListAsync();
+        }
+
+        // GET: api/Entity_Pagina/GetHomePage
+        [HttpGet]
+        public async Task<Entity_PaginaHome> GetHomePage()
+        {
+            Entity_PaginaHome page = new Entity_PaginaHome();
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Obtener_Informacion_Home", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    using (var item = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await item.ReadAsync())
+                        {
+                            page.Titulo = item["Titulo"].ToString();
+                            page.Nombre = item["Nombre"].ToString();
+                            page.Informacion = item["Informacion"].ToString();
+                            page.Imagen = item["Imagen"].ToString();
+                        }
+                    }
+                    return page;
+                }
+            }
         }
 
         private bool Entity_PaginaExists(int id)
