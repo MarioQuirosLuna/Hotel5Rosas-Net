@@ -36,9 +36,5 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             return await _context.Set<Entities_Hotel_5_Rosas.Entity_Caracteristicas>().ToListAsync();
         }
 
-        private bool Entity_CaracteristicasExists(int id)
-        {
-            return _context.Entity_Caracteristicas.Any(e => e.PK_Tipo_Habitacion == id);
-        }
     }
 }

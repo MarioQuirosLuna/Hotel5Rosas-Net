@@ -14,3 +14,11 @@ C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel
 C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.CopyComplete
 C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.dll
 C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.pdb
+C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\Entities_Hotel_5_Rosas.dll
+C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\Entities_Hotel_5_Rosas.pdb
+C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.AssemblyReference.cache
+C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.CoreCompileInputs.cache
+C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.CopyComplete
+C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.dll
+C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.pdb

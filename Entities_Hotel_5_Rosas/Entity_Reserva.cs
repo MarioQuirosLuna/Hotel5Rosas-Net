@@ -14,7 +14,11 @@ namespace Entities_Hotel_5_Rosas
         [Key]
         public int PK_Reserva { get; set; }
         public int FK_Habitacion { get; set; }
-        public int FK_Cliente { get; set; }
+        public string Nombre_Cliente { get; set; }
+        public string Apellidos_Cliente { get; set; }
+        public string Numero_Tarjeta { get; set; }
+        public string Correo { get; set; }
+
         public DateTime Fecha_Transaccion { get; set; }
         public DateTime Fecha_Inicio { get; set; }
         public DateTime Fecha_Fin { get; set; }

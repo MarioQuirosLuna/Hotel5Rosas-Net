@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace Entities_Hotel_5_Rosas
 {
-    [Table("Caracteristicas_Tipo_Habitacion", Schema = "HABITACION")]
+    [Table("Caracteristicas", Schema = "HABITACION")]
     public class Entity_Caracteristicas
     {
         [Key]
-        public int PK_Tipo_Habitacion { get; set; }
-        public int FK_Tipo_Habitacion { get; set; }
+        public int PK_Caracteristicas { get; set; }
         public string Nombre { get; set; }
     }
 }

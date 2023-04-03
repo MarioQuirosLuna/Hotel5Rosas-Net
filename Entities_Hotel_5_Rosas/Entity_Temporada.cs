@@ -17,8 +17,8 @@ namespace Entities_Hotel_5_Rosas
         [Key]
         public int PK_Temporada { get; set; }
         public string Nombre { get; set; }
-        public string Fecha_Inicio { get; set; }
-        public string Fecha_Fin { get; set; }
+        public DateTime Fecha_Inicio { get; set; }
+        public DateTime Fecha_Fin { get; set; }
 
     }
 }

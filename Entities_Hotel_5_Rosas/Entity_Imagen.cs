@@ -16,7 +16,7 @@ namespace Entities_Hotel_5_Rosas
 
         [Key]
         public int PK_Imagen { get; set; }
-        public string Imagen { get; set; }
+        public byte[] Imagen { get; set; }
         public int FK_Galeria { get; set; }
 
     }
