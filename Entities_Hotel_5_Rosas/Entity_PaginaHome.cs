@@ -13,5 +13,6 @@ namespace Entities_Hotel_5_Rosas
         public string Informacion { get; set; }
         public string Imagen { get; set; }
         //Ino    
+        //comentario
     }
 }
