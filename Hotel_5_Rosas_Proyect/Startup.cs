@@ -27,6 +27,20 @@ namespace Hotel_5_Rosas_Proyect
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //CORS
+            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:44343")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+                    });
+            });
+
             services.AddControllers();
 
             services.AddDbContext<DA_Hotel_5_Rosas_Usuario>(options =>
