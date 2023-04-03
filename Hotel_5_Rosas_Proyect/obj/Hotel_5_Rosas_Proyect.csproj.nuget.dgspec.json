@@ -11,7 +11,11 @@
         "projectPath": "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj",
         "frameworks": {
           "net48": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj": {
+                "projectPath": "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj"
+              }
+            }
           }
         }
       },
