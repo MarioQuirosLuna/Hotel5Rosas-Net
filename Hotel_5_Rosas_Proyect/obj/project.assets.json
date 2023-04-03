@@ -3468,6 +3468,9 @@
       },
       "DA_Hotel_5_Rosas/1.0.0": {
         "type": "project",
+        "dependencies": {
+          "Entities_Hotel_5_Rosas": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/DA_Hotel_5_Rosas.dll": {}
         },
@@ -10054,6 +10057,12 @@
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",
