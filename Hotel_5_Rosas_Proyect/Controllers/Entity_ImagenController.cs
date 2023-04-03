@@ -26,15 +26,10 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             _context = context;
         }
 
-        // GET: Entity_Imagen
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Entity_Imagen.ToListAsync());
-        }
 
-        // GET: api/Entity_Imagen/GetTipo
+        // GET: api/Entity_Imagen/GetImages
         [HttpGet]
-        public async Task<IEnumerable<Entities_Hotel_5_Rosas.Entity_Imagen>> GetTipo()
+        public async Task<IEnumerable<Entities_Hotel_5_Rosas.Entity_Imagen>> GetImages()
         {
             return await _context.Set<Entities_Hotel_5_Rosas.Entity_Imagen>().ToListAsync();
         }

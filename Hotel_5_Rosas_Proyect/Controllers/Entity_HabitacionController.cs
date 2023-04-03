@@ -23,15 +23,9 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             _context = context;
         }
 
-        // GET: Entity_Habitacion
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Entity_Habitacion.ToListAsync());
-        }
-
-        // GET: api/Entity_Habitacion/GetTipo
+        // GET: api/Entity_Habitacion/GetRooms
         [HttpGet]
-        public async Task<IEnumerable<Entities_Hotel_5_Rosas.Entity_Habitacion>> GetTipo()
+        public async Task<IEnumerable<Entities_Hotel_5_Rosas.Entity_Habitacion>> GetRooms()
         {
             return await _context.Set<Entities_Hotel_5_Rosas.Entity_Habitacion>().ToListAsync();
         }
