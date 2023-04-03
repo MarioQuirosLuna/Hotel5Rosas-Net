@@ -3468,9 +3468,6 @@
       },
       "DA_Hotel_5_Rosas/1.0.0": {
         "type": "project",
-        "dependencies": {
-          "Entities_Hotel_5_Rosas": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/DA_Hotel_5_Rosas.dll": {}
         },
