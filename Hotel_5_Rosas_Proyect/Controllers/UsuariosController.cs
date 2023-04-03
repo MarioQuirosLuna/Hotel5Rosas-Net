@@ -25,9 +25,9 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             _context = context;
         }
 
-        // GET: api/Usuarios/GetTipo
+        // GET: api/Usuarios/GetUsers
         [HttpGet]
-        public async Task<IEnumerable<Entities_Hotel_5_Rosas.Entity_Usuario>> GetTipo()
+        public async Task<IEnumerable<Entities_Hotel_5_Rosas.Entity_Usuario>> GetUsers()
         {
             return await _context.Set<Entities_Hotel_5_Rosas.Entity_Usuario>().ToListAsync();
         }

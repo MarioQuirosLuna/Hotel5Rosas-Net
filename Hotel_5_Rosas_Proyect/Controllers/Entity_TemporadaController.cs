@@ -24,15 +24,9 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             _context = context;
         }
 
-        // GET: Entity_Temporada
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Entity_Temporada.ToListAsync());
-        }
-
-        // GET: api/Entity_Temporada/GetTipo
+        // GET: api/Entity_Temporada/GetSeasons
         [HttpGet]
-        public async Task<IEnumerable<Entities_Hotel_5_Rosas.Entity_Temporada>> GetTipo()
+        public async Task<IEnumerable<Entities_Hotel_5_Rosas.Entity_Temporada>> GetSeasons()
         {
             return await _context.Set<Entities_Hotel_5_Rosas.Entity_Temporada>().ToListAsync();
         }
