@@ -1,19 +1,19 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\Hotel_5_Rosas_Proyect.csproj": {}
+    "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\Hotel_5_Rosas_Proyect.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj": {
+    "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj",
+        "projectUniqueName": "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj",
         "projectName": "DA_Hotel_5_Rosas",
-        "projectPath": "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj",
+        "projectPath": "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj",
         "frameworks": {
           "net48": {
             "projectReferences": {
-              "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj": {
-                "projectPath": "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj"
+              "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj": {
+                "projectPath": "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj"
               }
             }
           }
@@ -23,11 +23,11 @@
         "net48": {}
       }
     },
-    "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj": {
+    "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj",
+        "projectUniqueName": "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj",
         "projectName": "Entities_Hotel_5_Rosas",
-        "projectPath": "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj",
+        "projectPath": "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj",
         "frameworks": {
           "net48": {
             "projectReferences": {}
@@ -38,17 +38,17 @@
         "net48": {}
       }
     },
-    "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\Hotel_5_Rosas_Proyect.csproj": {
+    "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\Hotel_5_Rosas_Proyect.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\Hotel_5_Rosas_Proyect.csproj",
+        "projectUniqueName": "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\Hotel_5_Rosas_Proyect.csproj",
         "projectName": "Hotel_5_Rosas_Proyect",
-        "projectPath": "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\Hotel_5_Rosas_Proyect.csproj",
-        "packagesPath": "C:\\Users\\mario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\obj\\",
+        "projectPath": "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\Hotel_5_Rosas_Proyect.csproj",
+        "packagesPath": "C:\\Users\\josep\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\josep\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -62,11 +62,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj": {
-                "projectPath": "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj"
+              "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj": {
+                "projectPath": "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj"
               },
-              "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj": {
-                "projectPath": "C:\\Users\\mario\\OneDrive\\Escritorio\\Proyecto5Rosas\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj"
+              "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj": {
+                "projectPath": "C:\\Users\\josep\\Desktop\\Universidad\\Ingenieria de software\\Proyecto\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj"
               }
             }
           }
@@ -119,6 +119,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.28, 3.1.28]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -127,7 +133,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
