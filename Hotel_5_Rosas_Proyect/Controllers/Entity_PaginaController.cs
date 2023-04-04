@@ -86,6 +86,36 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             }
         }
 
+
+
+        // GET: api/Entity_Pagina/getFacilityData
+        [HttpGet] 
+        public async Task<Entity_Obtener_Facilidades> getFacilityData()
+        {
+            Entity_Obtener_Facilidades page = new Entity_Obtener_Facilidades();
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Obtener_Facilidades", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    using (var item = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await item.ReadAsync())
+                        {
+                            page.Nombre = item["Nombre"].ToString();
+                            page.Descripcion = item["Descripcion"].ToString();
+                            page.Imagen = item["Imagen"].ToString();
+                        }
+                    }
+                    return page;
+                }
+            }
+        }
+
+
+
+
         private bool Entity_PaginaExists(int id)
         {
             return _context.Entity_Pagina.Any(e => e.PK_Pagina == id);
