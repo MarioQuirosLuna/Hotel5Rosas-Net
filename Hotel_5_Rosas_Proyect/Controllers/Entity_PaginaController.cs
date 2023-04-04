@@ -87,30 +87,30 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         }
 
 
-
+ 
         // GET: api/Entity_Pagina/getFacilityData
         [HttpGet] 
-        public async Task<Entity_Obtener_Facilidades> getFacilityData()
+        public async Task<List<Entities_Hotel_5_Rosas.Entity_Obtener_Facilidades>> getFacilityData()
         {
-            Entity_Obtener_Facilidades page = new Entity_Obtener_Facilidades();
-            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+            SqlCommand cmd = conexion.CreateCommand();
+            conexion.Open();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "SP_Obtener_Facilidades";
+            
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Entity_Obtener_Facilidades> tipos = new List<Entity_Obtener_Facilidades>();
+            while (reader.Read())
             {
-                using (var cmd = new SqlCommand("SP_Obtener_Facilidades", sql))
-                {
-                    await sql.OpenAsync();
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    using (var item = await cmd.ExecuteReaderAsync())
-                    {
-                        if (await item.ReadAsync())
-                        {
-                            page.Nombre = item["Nombre"].ToString();
-                            page.Descripcion = item["Descripcion"].ToString();
-                            page.Imagen = item["Imagen"].ToString();
-                        }
-                    }
-                    return page;
-                }
+                Entity_Obtener_Facilidades tipo = new Entity_Obtener_Facilidades();
+                tipo.Nombre = (string)reader["Nombre"];
+                tipo.Descripcion = (string)reader["Descripcion"];
+                tipo.Imagen = (byte[])reader["Imagen"];
+                tipos.Add(tipo);
             }
+            conexion.Close();
+
+            return tipos;
         }
 
 
