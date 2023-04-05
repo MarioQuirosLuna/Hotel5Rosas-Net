@@ -23,6 +23,9 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             _context = context;
         }
 
+
+
+
         // GET: api/Entity_Correo/GetMails
         [HttpGet]
         public async Task<IEnumerable<Entities_Hotel_5_Rosas.Entity_Correo>> GetMails()

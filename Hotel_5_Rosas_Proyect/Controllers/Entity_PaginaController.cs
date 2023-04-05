@@ -105,7 +105,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                 Entity_Obtener_Facilidades tipo = new Entity_Obtener_Facilidades();
                 tipo.Nombre = (string)reader["Nombre"];
                 tipo.Descripcion = (string)reader["Descripcion"];
-                tipo.Imagen = (byte[])reader["Imagen"];
+                tipo.Imagen = (string)reader["Imagen"];
                 tipos.Add(tipo);
             }
             conexion.Close();
@@ -113,6 +113,8 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             return tipos;
         }
 
+
+       
 
 
 
