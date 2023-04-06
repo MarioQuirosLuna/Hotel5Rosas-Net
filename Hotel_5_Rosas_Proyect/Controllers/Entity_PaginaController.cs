@@ -12,6 +12,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Entities_Hotel_5_Rosas.Modelos;
 
 namespace Hotel_5_Rosas_Proyect.Controllers
 {
@@ -90,7 +91,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
  
         // GET: api/Entity_Pagina/getFacilityData
         [HttpGet] 
-        public async Task<List<Entities_Hotel_5_Rosas.Entity_Obtener_Facilidades>> getFacilityData()
+        public List<Entities_Hotel_5_Rosas.Entity_Obtener_Facilidades> getFacilityData()
         {
             SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
             SqlCommand cmd = conexion.CreateCommand();
@@ -114,7 +115,35 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         }
 
 
-       
+
+        // GET: api/Entity_Pagina/getTarifas
+        [HttpGet]
+        public  List<Entities_Hotel_5_Rosas.Modelos.Entity_Tarifas> getTarifas()
+        {
+            SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+            SqlCommand cmd = conexion.CreateCommand();
+            conexion.Open();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "SP_Obtener_Caracteristicas_Habitacion";
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Entity_Tarifas> tipos = new List<Entity_Tarifas>();
+            while (reader.Read())
+            {
+                Entity_Tarifas tipo = new Entity_Tarifas();
+                tipo.Nombre = (string)reader["Nombre"];
+                tipo.Descripcion = (string)reader["Descripcion"];
+                tipo.Tarifa = (decimal)reader["Tarifa"];
+                tipo.Imagen = (string)reader["Imagen"];
+                tipo.Caracteristicas = (string)reader["Caracteristicas"];
+                tipo.Ofertas_Temporada = (string)reader["Ofertas_Temporada"];
+                tipos.Add(tipo);
+            }
+            conexion.Close();
+
+            return tipos;
+        }
+
 
 
 

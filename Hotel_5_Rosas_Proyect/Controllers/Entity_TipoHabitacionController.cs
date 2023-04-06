@@ -23,12 +23,19 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             _context = context;
         }
 
+
+
         // GET: api/Entity_TipoHabitacion/GetRoomTypes
         [HttpGet]
         public async Task<IEnumerable<Entities_Hotel_5_Rosas.Entity_TipoHabitacion>> GetRoomTypes()
         {
             return await _context.Set<Entities_Hotel_5_Rosas.Entity_TipoHabitacion>().ToListAsync();
         }
+
+
+        
+
+
 
         private bool Entity_TipoHabitacionExists(int id)
         {
