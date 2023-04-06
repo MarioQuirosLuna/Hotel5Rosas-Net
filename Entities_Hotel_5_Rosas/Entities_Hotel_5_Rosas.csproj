@@ -57,6 +57,7 @@
     <Compile Include="Modelos\Entity_Obtener_Facilidades.cs" />
     <Compile Include="Entity_OfertaTemporada.cs" />
     <Compile Include="Entity_Pagina.cs" />
+    <Compile Include="Modelos\Entity_PaginaComoLLegar.cs" />
     <Compile Include="Modelos\Entity_PaginaHome.cs" />
     <Compile Include="Modelos\Entity_PaginaSobreNosotros.cs" />
     <Compile Include="Entity_Publicidad.cs" />

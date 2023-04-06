@@ -144,7 +144,30 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             return tipos;
         }
 
+        // GET: api/Entity_Pagina/getComoLlegar
+        [HttpGet]
+        public List<Entities_Hotel_5_Rosas.Modelos.Entity_PaginaComoLLegar> getComoLlegar()
+        {
+            SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+            SqlCommand cmd = conexion.CreateCommand();
+            conexion.Open();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "SP_Obtener_Informacion_Como_Llegar";
 
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Entity_PaginaComoLLegar> tipos = new List<Entity_PaginaComoLLegar>();
+            while (reader.Read())
+            {
+                Entity_PaginaComoLLegar tipo = new Entity_PaginaComoLLegar();
+                tipo.Nombre = (string)reader["Nombre"];
+                tipo.Titulo = (string)reader["Titulo"];
+                tipo.Informacion = (string)reader["Informacion"];
+                tipos.Add(tipo);
+            }
+            conexion.Close();
+
+            return tipos;
+        }
 
 
         private bool Entity_PaginaExists(int id)
