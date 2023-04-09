@@ -30,6 +30,35 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             return await _context.Set<Entities_Hotel_5_Rosas.Entity_Facilidad>().ToListAsync();
         }
 
+
+        //------------------------------------Puts--------------------------------------
+        // PUT: api/Entity_Facilidad/PutModificarFacilidad
+        [HttpPut]
+        public async Task<ActionResult<Entity_Facilidad>> PutModificarFacilidad(Entity_Facilidad facilidad)
+        {
+            await _context.Database
+                .ExecuteSqlInterpolatedAsync($@"EXEC SP_Modificar_Facilidad
+                                                  @param_Id={facilidad.PK_Facilidad}, @param_Nombre={facilidad.Nombre}, @param_Descripcion={facilidad.Descripcion}, @param_FK_Imagen={facilidad.FK_Imagen}");
+
+            return Ok(facilidad);
+        }
+
+
+        //----------------------------DELETE-----------------------------
+
+        // PUT: api/Entity_Facilidad/PutEliminarFacilidad
+        [HttpPut("{PK_Facilidad}")]
+        public async Task<ActionResult<Entity_Reserva>> PutEliminarFacilidad(int PK_Facilidad)
+        {
+            await _context.Database
+                .ExecuteSqlInterpolatedAsync($@"EXEC SP_Eliminar_Facilidad
+                                                  @param_id={PK_Facilidad}");
+
+            return Ok("Ok");
+        }
+
+
+
         private bool Entity_FacilidadExists(int id)
         {
             return _context.Entity_Facilidad.Any(e => e.PK_Facilidad == id);

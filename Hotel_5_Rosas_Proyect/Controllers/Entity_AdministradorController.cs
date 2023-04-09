@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Entities_Hotel_5_Rosas;
 using Hotel_5_Rosas_Proyect.Data;
 using System.Web.Http.Cors;
+using Microsoft.Data.SqlClient;
 
 namespace Hotel_5_Rosas_Proyect.Controllers
 {
@@ -24,6 +25,14 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         {
             _context = context;
         }
+
+
+
+       
+        
+       
+
+
 
         // GET: api/Entity_Administrador/GetAdmins
         [HttpGet]

@@ -30,18 +30,23 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             return await _context.Set<Entities_Hotel_5_Rosas.Entity_Reserva>().ToListAsync();
         }
 
-        /*
-        // POST: api/Entity_TipoHabitacion/PostInsertReservation
-        [HttpPost]
-        public async Task<ActionResult<Entity_Reserva>> PostInsertReservation(Entity_Reserva tipo)
+
+
+
+
+        //----------------------------DELETE-----------------------------
+
+        // PUT: api/Entity_Reserva/PutEliminarReserva
+        [HttpPut("{PK_Reserva}")]
+        public async Task <ActionResult<Entity_Reserva>> PutEliminarReserva(int PK_Reserva)
         {
             await _context.Database
-                .ExecuteSqlInterpolatedAsync($@"EXEC DOC.PA_InsertarTipo 
-                                                @pNombre={tipo.TC_Nombre}, @pDescripcion={tipo.TC_Descripcion}");
+                .ExecuteSqlInterpolatedAsync($@"EXEC SP_Eliminar_Reserva
+                                                  @param_Id={PK_Reserva}");
 
-            return Ok(tipo);
-        } //Con Stored 
-        */
+            return Ok("Ok");
+        } 
+
 
         private bool Entity_ReservaExists(int id)
         {

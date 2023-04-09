@@ -169,6 +169,22 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             return tipos;
         }
 
+        //---------------------------------------PUTS-------------------------------------------
+
+        // PUT: api/Entity_Pagina/PutModificarPagina
+        [HttpPut]
+        public async Task<ActionResult<Entity_Pagina>> PutModificarPagina(Entity_Pagina pagina)
+        {
+            await _context.Database
+                .ExecuteSqlInterpolatedAsync($@"EXEC SP_Modificar_Pagina
+                                                  @param_id={pagina.PK_Pagina}, @param_Nombre={pagina.Nombre}, 
+                                            @param_Titulo={pagina.Titulo}, @param_Informacion={pagina.Informacion}");
+
+            return Ok(pagina);
+        }
+
+
+
 
         private bool Entity_PaginaExists(int id)
         {
