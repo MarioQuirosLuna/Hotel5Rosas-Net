@@ -104,8 +104,10 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             while (reader.Read())
             {
                 Entity_Obtener_Facilidades tipo = new Entity_Obtener_Facilidades();
+                tipo.PK_Facilidad = (int)reader["PK_Facilidad"];
                 tipo.Nombre = (string)reader["Nombre"];
                 tipo.Descripcion = (string)reader["Descripcion"];
+                tipo.FK_Imagen = (int)reader["FK_Imagen"];
                 tipo.Imagen = (string)reader["Imagen"];
                 tipos.Add(tipo);
             }

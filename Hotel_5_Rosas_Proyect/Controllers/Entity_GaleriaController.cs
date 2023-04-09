@@ -48,6 +48,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             while (reader.Read())
             {
                 Entity_Imagen tipo = new Entity_Imagen();
+                tipo.PK_Imagen = (int)reader["PK_Imagen"];
                 tipo.Imagen = (string)reader["Imagen"];
                 tipos.Add(tipo);
             }
