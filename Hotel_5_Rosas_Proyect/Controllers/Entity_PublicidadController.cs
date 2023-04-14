@@ -43,7 +43,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                         {
                             page.Nombre = item["Nombre"].ToString();
                             page.Descripcion = item["Descripcion"].ToString();
-                            page.Imagen = (byte[])item["Imagen"];
+                            page.Imagen = (string)item["Imagen"];
                         }
                     }
                     return page;
