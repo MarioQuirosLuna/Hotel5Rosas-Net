@@ -28,27 +28,29 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
         // GET: api/Entity_Publicidad/GetPublicities
         [HttpGet]
-        public async Task<Entity_Publicidad> GetPublicities()
+        public List<Entities_Hotel_5_Rosas.Entity_Publicidad> GetPublicities()
         {
-            Entity_Publicidad page = new Entity_Publicidad();
-            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+
+            SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+            SqlCommand cmd = conexion.CreateCommand();
+            conexion.Open();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "SP_Obtener_Publicidad";
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Entity_Publicidad> pages = new List<Entity_Publicidad>();
+            while (reader.Read())
             {
-                using (var cmd = new SqlCommand("SP_Obtener_Publicidad", sql))
-                {
-                    await sql.OpenAsync();
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    using (var item = await cmd.ExecuteReaderAsync())
-                    {
-                        if (await item.ReadAsync())
-                        {
-                            page.Nombre = item["Nombre"].ToString();
-                            page.Descripcion = item["Descripcion"].ToString();
-                            page.Imagen = (string)item["Imagen"];
-                        }
-                    }
-                    return page; 
-                }
+                Entity_Publicidad page = new Entity_Publicidad();
+                page.Nombre = (string)reader["Nombre"];
+                page.Descripcion = (string)reader["Descripcion"];
+                page.Imagen = (string)reader["Imagen"];
+                pages.Add(page);
             }
+            conexion.Close();
+
+            return pages;
+
         }
 
         private bool Entity_PublicidadExists(int id)

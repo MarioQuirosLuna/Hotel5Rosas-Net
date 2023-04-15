@@ -22,3 +22,11 @@ C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-N
 C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.CopyComplete
 C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.dll
 C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.pdb
+C:\Users\juanp\OneDrive\Escritorio\API Angular\Entities_Hotel_5_Rosas\bin\Debug\Entities_Hotel_5_Rosas.dll
+C:\Users\juanp\OneDrive\Escritorio\API Angular\Entities_Hotel_5_Rosas\bin\Debug\Entities_Hotel_5_Rosas.pdb
+C:\Users\juanp\OneDrive\Escritorio\API Angular\Entities_Hotel_5_Rosas\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\juanp\OneDrive\Escritorio\API Angular\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.AssemblyReference.cache
+C:\Users\juanp\OneDrive\Escritorio\API Angular\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.CoreCompileInputs.cache
+C:\Users\juanp\OneDrive\Escritorio\API Angular\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.CopyComplete
+C:\Users\juanp\OneDrive\Escritorio\API Angular\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.dll
+C:\Users\juanp\OneDrive\Escritorio\API Angular\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.pdb
