@@ -54,6 +54,7 @@
     <Compile Include="Entity_Habitacion.cs" />
     <Compile Include="Entity_Hotel.cs" />
     <Compile Include="Entity_Imagen.cs" />
+    <Compile Include="Modelos\Entity_Estado_Habitacion.cs" />
     <Compile Include="Modelos\Entity_Obtener_Facilidades.cs" />
     <Compile Include="Entity_OfertaTemporada.cs" />
     <Compile Include="Entity_Pagina.cs" />

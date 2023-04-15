@@ -19,7 +19,7 @@ namespace Entities_Hotel_5_Rosas
         public string Descripcion { get; set; }
         public int FK_Imagen { get; set; }
         public int FK_Hotel { get; set; }
-        public byte[] Imagen { get; set; }
+        public string Imagen { get; set; }
 
     }
 }
