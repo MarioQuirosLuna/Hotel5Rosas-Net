@@ -14,7 +14,7 @@ namespace Entities_Hotel_5_Rosas.Modelos
         public string Imagen { get; set; }
         public string Descripcion { get; set; }
         public decimal Tarifa { get; set; }
-        public float Oferta { get; set; }
+        public decimal Oferta { get; set; }
         public string Nombre_Temporada { get; set; }
     }
 }

@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Hotel_5_Rosas_Proyect.Data;
+using Microsoft.OpenApi.Models;
 
 namespace Hotel_5_Rosas_Proyect
 {
@@ -38,6 +39,11 @@ namespace Hotel_5_Rosas_Proyect
                            .AllowAnyHeader()
                            .AllowAnyMethod();
                 });
+            });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hotel5Rosas", Version = "v1" });
             });
 
             services.AddControllers();
@@ -109,9 +115,35 @@ namespace Hotel_5_Rosas_Proyect
 
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                ConfigureSwagger(app);
+            });
+        }
+
+        private void ConfigureSwagger(IApplicationBuilder app)
+        {
+            // Habilitar middleware para servir la documentación generada por Swagger como un endpoint JSON.
+            app.UseSwagger();
+
+            // Habilitar middleware para servir swagger-ui (HTML, JS, CSS, etc.), especificando la ruta del archivo Swagger JSON.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Nombre de la API");
+            });
+
+            // Redireccionar la URL base a la URL de Swagger
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path.Value == "/")
+                {
+                    context.Response.Redirect("/swagger");
+                    return;
+                }
+
+                await next();
             });
         }
     }
