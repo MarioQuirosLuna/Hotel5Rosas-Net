@@ -73,8 +73,46 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                     return Ok(room);
                 }
             }
-
         }
+
+        //----------------------------Save Reservation-----------------------------
+        // GET: api/Entity_Reserva/SaveReservation
+        [HttpPost]
+        public IActionResult SaveReservation(Entity_Reserva reserva)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(_context.Database.GetConnectionString()))
+                {
+                    using (var command = new SqlCommand("SP_Insertar_Reserva", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Agregar parámetros al procedimiento almacenado
+                        command.Parameters.AddWithValue("@param_FK_Habitacion", reserva.FK_Habitacion);
+                        command.Parameters.AddWithValue("@param_Nombre_Cliente", reserva.Nombre_Cliente);
+                        command.Parameters.AddWithValue("@param_Apellidos_Cliente", reserva.Apellidos_Cliente);
+                        command.Parameters.AddWithValue("@param_Numero_Tarjeta", reserva.Numero_Tarjeta);
+                        command.Parameters.AddWithValue("@param_Correo", reserva.Correo);
+                        command.Parameters.AddWithValue("@param_Fecha_Transaccion", reserva.Fecha_Transaccion);
+                        command.Parameters.AddWithValue("@param_Fecha_Inicio", reserva.Fecha_Inicio);
+                        command.Parameters.AddWithValue("@param_Fecha_Fin", reserva.Fecha_Fin);
+                        command.Parameters.AddWithValue("@param_Tarifa_Total", reserva.Tarifa_Total);
+
+                        // Abrir la conexión y ejecutar el procedimiento almacenado
+                        connection.Open();
+                        command.ExecuteNonQuery();
+
+                        return Ok();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
         //----------------------------DELETE-----------------------------
 
