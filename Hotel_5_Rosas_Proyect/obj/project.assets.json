@@ -9961,19 +9961,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\juanp\\.nuget\\packages\\": {}
+    "C:\\Users\\pisab\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\juanp\\OneDrive\\Escritorio\\API Angular\\Hotel_5_Rosas_Proyect\\Hotel_5_Rosas_Proyect.csproj",
+      "projectUniqueName": "C:\\Users\\pisab\\Desktop\\Universidad\\Cursos\\Ingeniería de software\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\Hotel_5_Rosas_Proyect.csproj",
       "projectName": "Hotel_5_Rosas_Proyect",
-      "projectPath": "C:\\Users\\juanp\\OneDrive\\Escritorio\\API Angular\\Hotel_5_Rosas_Proyect\\Hotel_5_Rosas_Proyect.csproj",
-      "packagesPath": "C:\\Users\\juanp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\juanp\\OneDrive\\Escritorio\\API Angular\\Hotel_5_Rosas_Proyect\\obj\\",
+      "projectPath": "C:\\Users\\pisab\\Desktop\\Universidad\\Cursos\\Ingeniería de software\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\Hotel_5_Rosas_Proyect.csproj",
+      "packagesPath": "C:\\Users\\pisab\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pisab\\Desktop\\Universidad\\Cursos\\Ingeniería de software\\Hotel5Rosas-Net\\Hotel_5_Rosas_Proyect\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\juanp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pisab\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9987,11 +9987,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\juanp\\OneDrive\\Escritorio\\API Angular\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj": {
-              "projectPath": "C:\\Users\\juanp\\OneDrive\\Escritorio\\API Angular\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj"
+            "C:\\Users\\pisab\\Desktop\\Universidad\\Cursos\\Ingeniería de software\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj": {
+              "projectPath": "C:\\Users\\pisab\\Desktop\\Universidad\\Cursos\\Ingeniería de software\\Hotel5Rosas-Net\\DA_Hotel_5_Rosas\\DA_Hotel_5_Rosas.csproj"
             },
-            "C:\\Users\\juanp\\OneDrive\\Escritorio\\API Angular\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj": {
-              "projectPath": "C:\\Users\\juanp\\OneDrive\\Escritorio\\API Angular\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj"
+            "C:\\Users\\pisab\\Desktop\\Universidad\\Cursos\\Ingeniería de software\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj": {
+              "projectPath": "C:\\Users\\pisab\\Desktop\\Universidad\\Cursos\\Ingeniería de software\\Hotel5Rosas-Net\\Entities_Hotel_5_Rosas\\Entities_Hotel_5_Rosas.csproj"
             }
           }
         }
@@ -10052,7 +10052,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -10061,7 +10061,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"Microsoft.AspNet.Cors 5.2.9\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'Microsoft.AspNet.Cors 5.2.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.Cors",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -10071,7 +10071,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"Microsoft.AspNet.WebApi.Core 5.2.9\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.2.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -10081,7 +10081,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"Microsoft.AspNet.WebApi.Cors 5.2.9\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'Microsoft.AspNet.WebApi.Cors 5.2.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebApi.Cors",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"

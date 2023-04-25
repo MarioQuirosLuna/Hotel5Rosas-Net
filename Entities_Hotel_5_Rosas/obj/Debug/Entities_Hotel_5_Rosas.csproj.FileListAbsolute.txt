@@ -30,3 +30,11 @@ C:\Users\juanp\OneDrive\Escritorio\API Angular\Entities_Hotel_5_Rosas\obj\Debug\
 C:\Users\juanp\OneDrive\Escritorio\API Angular\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.CopyComplete
 C:\Users\juanp\OneDrive\Escritorio\API Angular\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.dll
 C:\Users\juanp\OneDrive\Escritorio\API Angular\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.pdb
+C:\Users\pisab\Desktop\Universidad\Cursos\Ingeniería de software\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\Entities_Hotel_5_Rosas.dll
+C:\Users\pisab\Desktop\Universidad\Cursos\Ingeniería de software\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\Entities_Hotel_5_Rosas.pdb
+C:\Users\pisab\Desktop\Universidad\Cursos\Ingeniería de software\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\pisab\Desktop\Universidad\Cursos\Ingeniería de software\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.AssemblyReference.cache
+C:\Users\pisab\Desktop\Universidad\Cursos\Ingeniería de software\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.CoreCompileInputs.cache
+C:\Users\pisab\Desktop\Universidad\Cursos\Ingeniería de software\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.csproj.CopyComplete
+C:\Users\pisab\Desktop\Universidad\Cursos\Ingeniería de software\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.dll
+C:\Users\pisab\Desktop\Universidad\Cursos\Ingeniería de software\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\obj\Debug\Entities_Hotel_5_Rosas.pdb
