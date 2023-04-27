@@ -34,9 +34,9 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         }
 
         //----------------------------Available Room-----------------------------
-        // GET: api/Entity_Reserva/GetAvalaibleRoom
+        // GET: api/Entity_Reserva/GetAvailableRoom
         [HttpGet]
-        public ActionResult<Entity_HabitacionReserva> GetAvalaibleRoom(DateTime beginDate, DateTime endDate, int tipeRoom) {
+        public ActionResult<Entity_HabitacionReserva> GetAvailableRoom(DateTime beginDate, DateTime endDate, int roomType) {
             using (var connection = new SqlConnection(_context.Database.GetConnectionString()))
             {
                 using (var command = new SqlCommand("SP_Habitacion_Disponible", connection))
@@ -46,7 +46,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                     // Agregar parámetros al procedimiento almacenado
                     command.Parameters.AddWithValue("@param_Fecha_Inicio", beginDate);
                     command.Parameters.AddWithValue("@param_Fecha_Fin", endDate);
-                    command.Parameters.AddWithValue("@param_Tipo_Habitacion", tipeRoom);
+                    command.Parameters.AddWithValue("@param_Tipo_Habitacion", roomType);
                     // Agregar más parámetros según sea necesario
 
                     // Abrir la conexión y ejecutar el procedimiento almacenado
@@ -76,9 +76,9 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         }
 
         //----------------------------Save Reservation-----------------------------
-        // GET: api/Entity_Reserva/SaveReservation
+        // POST: api/Entity_Reserva/SaveReservation
         [HttpPost]
-        public IActionResult SaveReservation(Entity_Reserva reserva)
+        public ActionResult SaveReservation(Entity_Reserva reserva)
         {
             try
             {
