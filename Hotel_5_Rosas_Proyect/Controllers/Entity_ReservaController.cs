@@ -66,11 +66,12 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                         room.Descripcion = (string)reader["Descripcion"];
                         room.Tarifa = (decimal)reader["Tarifa"];
                         room.Oferta = (decimal)reader["Oferta"];
-                        room.Nombre_Temporada = (string)reader["Nombre"];
+                        room.Nombre_Temporada = (string)reader["Temporada"];
                         // Acceder a más columnas según sea necesario
+                        return Ok(room);
                     }
                     reader.Close();
-                    return Ok(room);
+                    return NotFound();
                 }
             }
         }
