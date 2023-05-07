@@ -15,7 +15,7 @@ namespace Entities_Hotel_5_Rosas.Modelos
         public int Numero_Habitacion { get; set; }
         public string Nombre { get; set; }
         public string Estado_Del_Dia { get; set; }
-
+        public int FK_Tipo_Habitacion { get; set; }
 
     }
 }

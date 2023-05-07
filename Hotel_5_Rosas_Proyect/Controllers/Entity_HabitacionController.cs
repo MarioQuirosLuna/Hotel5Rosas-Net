@@ -55,6 +55,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                 tipo.Numero_Habitacion = (int)reader["Numero_Habitacion"];
                 tipo.Nombre = (string)reader["Nombre"];
                 tipo.Estado_Del_Dia = (string)reader["Estado_Del_Dia"];
+                tipo.FK_Tipo_Habitacion = (int)reader["FK_Tipo_Habitacion"];
                 tipos.Add(tipo);
             }
             conexion.Close();
