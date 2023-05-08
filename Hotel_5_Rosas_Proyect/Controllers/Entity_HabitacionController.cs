@@ -33,10 +33,9 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         }
 
 
-
-
-        //----------Estado de la habitacion al dia de hoy
-        [HttpGet]// GET: api/Entity_Habitacion/GetEstadoHabitacion
+      
+            //----------Estado de la habitacion al dia de hoy
+            [HttpGet]// GET: api/Entity_Habitacion/GetEstadoHabitacion
         public List<Entities_Hotel_5_Rosas.Modelos.Entity_Estado_Habitacion> GetEstadoHabitacion()
         {
 
