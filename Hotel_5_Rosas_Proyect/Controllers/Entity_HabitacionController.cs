@@ -32,41 +32,40 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             return await _context.Set<Entities_Hotel_5_Rosas.Entity_Habitacion>().ToListAsync();
         }
 
-        /*
+        // GET: api/Entity_Habitacion/GetAvaibilityRoom
         [HttpGet("{startDate}/{endDate}/{roomType}")]
-        public ActionResult<Entity_Habitacion> GetAvaibilityRoom(DateTime startDate, DateTime endDate,int roomType )
+        public List<Entity_HabitacionReserva> GetAvaibilityRoom(DateTime startDate, DateTime endDate,int roomType )
         {
             SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
             SqlCommand cmd = conexion.CreateCommand();
             conexion.Open();
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = "[SP_Habitacion_Disponible]";
-            cmd.Parameters.Add("@param_startDate", System.Data.SqlDbType.DateTime).Value = startDate;
-            cmd.Parameters.Add("@param_endDate", System.Data.SqlDbType.DateTime).Value = endDate;
-            cmd.Parameters.Add("@param_roomType", System.Data.SqlDbType.Int).Value = roomType;
+            cmd.Parameters.AddWithValue("@param_Fecha_Inicio", startDate);
+            cmd.Parameters.AddWithValue("@param_Fecha_Fin", endDate);
+            cmd.Parameters.AddWithValue("@param_Tipo_Habitacion", roomType);
             SqlDataReader reader = cmd.ExecuteReader();
-            List<Entity_Habitacion> listRooms = new List<Entity_Habitacion>();
+            List<Entity_HabitacionReserva> listRooms = new List<Entity_HabitacionReserva>();
 
             while (reader.Read())
             {
-                Entity_Habitacion room = new Entity_Habitacion();
-                room.PK_Habitacion = (int)reader["PK_Habitacion"];
-                room.Nombre = (string)reader["Nombre"];
-                room.Fecha_Inicio = (DateTime)reader["Fecha_Inicio"];
-                room.Fecha_Fin = (DateTime)reader["Fecha_Fin"];
+                Entity_HabitacionReserva room = new Entity_HabitacionReserva();
+                room.PK_habitacion = (int)reader["PK_Habitacion"];
+                room.Tipo_Habitacion = (string)reader["Nombre"];
+                room.Numero_Habitacion = (int)reader["Numero_Habitacion"];
+                room.Imagen = (string)reader["Imagen"];
+                room.Descripcion = (string)reader["Descripcion"];
+                room.Tarifa = (decimal)reader["Tarifa"];
+                room.Oferta = (decimal)reader["Oferta"];
+                room.Nombre_Temporada = (string)reader["Temporada"];
+
                 listRooms.Add(room);
-                reader.Close();
             }
+            conexion.Close();
 
-            if (listSeason.Count > 0)
-            {
-                return Ok(listSeason[0]);
-            }
-
-            return BadRequest();
+            return listRooms;
         }
 
-        */
 
 
 
