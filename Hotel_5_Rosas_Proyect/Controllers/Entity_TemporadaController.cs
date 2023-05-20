@@ -37,80 +37,113 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
         //api/Entity_Temporada/GetEspecificSeason/1 
         [HttpGet("{PK_Temporada}")]
-        public ActionResult<Entity_Temporada> GetEspecificSeason(int PK_Temporada)
+        public async Task<Entity_Temporada> GetEspecificSeason(int PK_Temporada)
         {
-            SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
-            SqlCommand cmd = conexion.CreateCommand();
-            conexion.Open();
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.CommandText = "[SP_Get_SpecificSeason]";
-            cmd.Parameters.Add("@param_Nombre", System.Data.SqlDbType.VarChar, 20).Value = PK_Temporada;
-            SqlDataReader reader = cmd.ExecuteReader();
-            List<Entity_Temporada> listSeason = new List<Entity_Temporada>();
-
-            while (reader.Read())
+            Entity_Temporada season = new Entity_Temporada();
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
             {
-                Entity_Temporada season = new Entity_Temporada();
-                season.PK_Temporada = (int)reader["PK_Temporada"];
-                season.Nombre = (string)reader["Nombre"];
-                season.Fecha_Inicio = (DateTime)reader["Fecha_Inicio"];
-                season.Fecha_Fin = (DateTime)reader["Fecha_Fin"];
-                listSeason.Add(season);
-                reader.Close();
+                using (var cmd = new SqlCommand("SP_Obtener_Temporada", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_Temporada", PK_Temporada);
+                    using (var item = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await item.ReadAsync())
+                        {
+                            season.PK_Temporada = PK_Temporada;
+                            season.Nombre = (string)item["Nombre"];
+                            season.Fecha_Inicio = (DateTime)item["Fecha_Inicio"];
+                            season.Fecha_Fin = (DateTime)item["Fecha_Fin"];
+                        }
+                    }
+                    return season;
+                }
             }
-            
-            if (listSeason.Count > 0)
-            {
-                return Ok(listSeason[0]);
-            }
-
-            return BadRequest();
         }
-
 
         // POST: api/Entity_Temporada/PostInsertSeason
         [HttpPost]
-        public async Task<ActionResult<Entity_Temporada>> PostInsertSeason(Entity_Temporada temporada)
+        public async Task<IActionResult> PostInsertSeason(Entity_Temporada temporada)
         {
-            await _context.Database.ExecuteSqlInterpolatedAsync($@"EXEC PA_InsertarTemporada
-                                            @pNombre={temporada.Nombre}, @pFecha_Inicio={temporada.Fecha_Inicio}, @pFecha_Fin{temporada.Fecha_Fin}");
-
-            return Ok(temporada);
-        }
-
-        // POST: api/Entity_Temporada/PostUpdateSeason
-        [HttpPost]
-        public async Task<ActionResult<Entity_Temporada>> PostUpdateSeason(Entity_Temporada temporada)
-        {
-            await _context.Database.ExecuteSqlInterpolatedAsync($@"EXEC PA_InsertarTemporada
-                                            @PK_Temporada={temporada.PK_Temporada}, @pNombre={temporada.Nombre}, 
-                                            @pFecha_Inicio={temporada.Fecha_Inicio}, @pFecha_Fin{temporada.Fecha_Fin}");
-
-            return Ok(temporada);
-        }
-
-
-        // DELETE: api/Entity_Temporada/DeleteSeason
-        [HttpDelete("{PK_Temporada}")]
-        public async Task<ActionResult<Entity_Temporada>> DeleteSeason(int PK_Temporada)
-        {
-            var season = await _context.Entity_Temporada.FindAsync(PK_Temporada);
-
-            if(season == null)
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
             {
-                return NotFound();
+                using (var cmd = new SqlCommand("SP_Insertar_Temporada", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_Nombre", temporada.Nombre);
+                    cmd.Parameters.AddWithValue("@param_Fecha_Inicio", temporada.Fecha_Inicio);
+                    cmd.Parameters.AddWithValue("@param_Fecha_Fin", temporada.Fecha_Fin);
+
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok(); 
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
             }
-
-            _context.Entity_Temporada.Remove(season);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
         }
 
+        // PUT: api/Entity_Temporada/PutSeason
+        [HttpPut]
+        public async Task<IActionResult> PutSeason(Entity_Temporada temporada)
+        {
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Actualizar_Temporada", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_Temporada", temporada.PK_Temporada);
+                    cmd.Parameters.AddWithValue("@param_Nombre", temporada.Nombre);
+                    cmd.Parameters.AddWithValue("@param_Fecha_Inicio", temporada.Fecha_Inicio);
+                    cmd.Parameters.AddWithValue("@param_Fecha_Fin", temporada.Fecha_Fin);
 
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
 
+                    if (rowsAffected > 0)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+        }
 
+        // Delete: api/Entity_Temporada/DeleteSeason
+        [HttpDelete("{PK_Temporada}")]
+        public async Task<IActionResult> DeleteSeason(int PK_Temporada)
+        {
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Eliminar_Temporada", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_Temporada", PK_Temporada);
 
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return NoContent();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+        }
 
         private bool Entity_TemporadaExists(int id)
         {
