@@ -13,7 +13,7 @@ namespace Entities_Hotel_5_Rosas
 
     public class Entity_Temporada
     {
-
+        [Key]
         public int PK_Temporada { get; set; }
         public string Nombre { get; set; }
         public DateTime Fecha_Inicio { get; set; }
