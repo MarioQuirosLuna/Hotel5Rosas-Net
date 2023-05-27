@@ -188,6 +188,68 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
 
 
+        //--------------------------Home------------------------------------------------
+        // PUT: api/Entity_OfertaTemporada/UpdateHome
+        [HttpPut]
+        public async Task<IActionResult> UpdateHome(Entity_PaginaHome page)
+        {
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Modificar_Pagina_Home", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_Informacion", page.Informacion);
+                    cmd.Parameters.AddWithValue("@param_Imagen", page.Imagen);
+
+
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+        }
+
+
+
+        //--------------------------Como Llegar------------------------------------------------
+        // PUT: api/Entity_OfertaTemporada/UpdaHowToGet
+        [HttpPut]
+        public async Task<IActionResult> UpdaHowToGet(Entity_PaginaComoLLegar page)
+        {
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_Pk_oferta", page.Nombre);
+                    cmd.Parameters.AddWithValue("@param_FK_Temporada", page.Titulo);
+                    cmd.Parameters.AddWithValue("@param_FK_Tipo_Habitacion", page.Informacion);
+
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+        }
+
+
+
         private bool Entity_PaginaExists(int id)
         {
             return _context.Entity_Pagina.Any(e => e.PK_Pagina == id);
