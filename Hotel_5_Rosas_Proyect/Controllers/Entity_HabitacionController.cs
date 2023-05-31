@@ -53,42 +53,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                 room.PK_habitacion = (int)reader["PK_Habitacion"];
                 room.Tipo_Habitacion = (string)reader["Nombre"];
                 room.Numero_Habitacion = (int)reader["Numero_Habitacion"];
-                room.Imagen = (string)reader["Imagen"];
-                room.Descripcion = (string)reader["Descripcion"];
-                room.Tarifa = (decimal)reader["Tarifa"];
-                room.Oferta = (decimal)reader["Oferta"];
-                room.Nombre_Temporada = (string)reader["Temporada"];
-
-                listRooms.Add(room);
-            }
-            conexion.Close();
-
-            return listRooms;
-        }
-
-
-        // GET: api/Entity_Habitacion/GetAvaibilityRoomCliente
-        [HttpGet("{startDate}/{endDate}/{roomType}")]
-        public List<Entity_HabitacionReserva> GetAvaibilityRoomCliente(DateTime startDate, DateTime endDate, int roomType)
-        {
-            SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
-            SqlCommand cmd = conexion.CreateCommand();
-            conexion.Open();
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.CommandText = "[SP_Habitacion_Disponible_Cliente]";
-            cmd.Parameters.AddWithValue("@param_Fecha_Inicio", startDate);
-            cmd.Parameters.AddWithValue("@param_Fecha_Fin", endDate);
-            cmd.Parameters.AddWithValue("@param_Tipo_Habitacion", roomType);
-            SqlDataReader reader = cmd.ExecuteReader();
-            List<Entity_HabitacionReserva> listRooms = new List<Entity_HabitacionReserva>();
-
-            while (reader.Read())
-            {
-                Entity_HabitacionReserva room = new Entity_HabitacionReserva();
-                room.PK_habitacion = (int)reader["PK_Habitacion"];
-                room.Tipo_Habitacion = (string)reader["Nombre"];
-                room.Numero_Habitacion = (int)reader["Numero_Habitacion"];
-                room.Imagen = (string)reader["Imagen"];
+                //room.Imagen = (string)reader["Imagen"];
                 room.Descripcion = (string)reader["Descripcion"];
                 room.Tarifa = (decimal)reader["Tarifa"];
                 room.Oferta = (decimal)reader["Oferta"];
