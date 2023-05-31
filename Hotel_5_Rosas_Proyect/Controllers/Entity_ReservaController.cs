@@ -26,6 +26,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             _context = context;
         }
 
+        //------------------------------------------GETS-------------------------------
         // GET: api/Entity_Reserva/GetReservations
         [HttpGet]
         public async Task<IEnumerable<Entities_Hotel_5_Rosas.Entity_Reserva>> GetReservations()
@@ -66,6 +67,83 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
             return Ok(room);
         }
+
+
+        // GET: api/Entity_Reserva/getAllReservation
+        [HttpGet]
+        public List<Reservacion> GetAllReservation()
+        {
+            SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+            SqlCommand cmd = conexion.CreateCommand();
+            conexion.Open();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "SP_Obtener_Reservaciones";
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Reservacion> reservaciones = new List<Reservacion>();
+            while (reader.Read())
+            {
+                Reservacion reservacion = new Reservacion();
+                reservacion.PK_Reserva = (int)reader["PK_Reserva"];
+                reservacion.Tipo_Habitacion = (string)reader["Tipo_Habitacion"];
+                reservacion.Nombre_Cliente = (string)reader["Nombre_Cliente"];
+                reservacion.Apellidos_Cliente = (string)reader["Apellidos_Cliente"];
+                reservacion.Numero_Tarjeta = (string)reader["Numero_Tarjeta"];
+                reservacion.Correo = (string)reader["Correo"];
+                reservacion.Fecha_Transaccion = (DateTime)reader["Fecha_Transaccion"];
+                reservacion.Fecha_Inicio = (DateTime)reader["Fecha_Inicio"];
+                reservacion.Fecha_Fin = (DateTime)reader["Fecha_Fin"];
+                reservacion.Tarifa_Total = (decimal)reader["Tarifa_Total"];
+
+                reservaciones.Add(reservacion);
+            }
+            conexion.Close();
+
+            return reservaciones;
+        }
+
+        // GET: api/Entity_Reserva/GetUniqueReservation
+        [HttpGet("{PK_Reserva}")]
+        public ActionResult<Reservacion> GetUniqueReservation(int PK_Reserva)
+        {
+
+            SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+            SqlCommand cmd = conexion.CreateCommand();
+            conexion.Open();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "[SP_Obtener_Una_Reservacion]";
+            cmd.Parameters.Add("@param_PK_Reserva", System.Data.SqlDbType.Int).Value = PK_Reserva;
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Reservacion> listReservacion = new List<Reservacion>();
+
+            while (reader.Read())
+            {
+                Reservacion reservation = new Reservacion();
+                reservation.PK_Reserva = (int)reader["PK_Reserva"];
+                reservation.Tipo_Habitacion = (string)reader["Tipo_Habitacion"];
+                reservation.Nombre_Cliente = (string)reader["Nombre_Cliente"];
+                reservation.Apellidos_Cliente = (string)reader["Apellidos_Cliente"];
+                reservation.Numero_Tarjeta = (string)reader["Numero_Tarjeta"];
+                reservation.Correo = (string)reader["Correo"];
+                reservation.Fecha_Transaccion = (DateTime)reader["Fecha_Transaccion"];
+                reservation.Fecha_Inicio = (DateTime)reader["Fecha_Inicio"];
+                reservation.Fecha_Fin = (DateTime)reader["Fecha_Fin"];
+                reservation.Tarifa_Total = (decimal)reader["Tarifa_Total"];
+
+                listReservacion.Add(reservation);
+            }
+
+            if (listReservacion.Count > 0)
+            {
+                return Ok(listReservacion[0]);
+            }
+
+            return BadRequest();
+
+        }
+
+
+
 
         //----------------------------Save Reservation-----------------------------
         // POST: api/Entity_Reserva/SaveReservation
@@ -108,8 +186,8 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
         //----------------------------DELETE-----------------------------
 
-        // PUT: api/Entity_Reserva/PutEliminarReserva
-        [HttpPut("{PK_Reserva}")]
+        // Delete: api/Entity_Reserva/PutEliminarReserva
+        [HttpDelete("{PK_Reserva}")]
         public async Task <ActionResult<Entity_Reserva>> PutEliminarReserva(int PK_Reserva)
         {
             await _context.Database
@@ -117,7 +195,9 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                                                   @param_Id={PK_Reserva}");
 
             return Ok("Ok");
-        } 
+        }
+
+         
 
 
         private bool Entity_ReservaExists(int id)

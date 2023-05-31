@@ -15,6 +15,6 @@ namespace Entities_Hotel_5_Rosas
         public int PK_Oferta_Temporada { get; set; }
         public int FK_Temporada { get; set; }
         public int FK_Tipo_Habitacion { get; set; }
-        public int Oferta { get; set; }
+        public decimal Oferta { get; set; }
     }
 }
