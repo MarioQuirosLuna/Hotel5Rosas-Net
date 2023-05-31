@@ -171,7 +171,38 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             return tipos;
         }
 
-        //---------------------------------------PUTS-------------------------------------------
+
+        // GET: api/Entity_Pagina/GetEasePage
+        [HttpGet]
+        public async Task<Entity_PaginaHome> GetEasePage()
+        {
+            Entity_PaginaHome page = new Entity_PaginaHome();
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Obtener_Informacion_Facilidades", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    using (var item = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await item.ReadAsync())
+                        {
+                            page.Titulo = item["Titulo"].ToString();
+                            page.Nombre = item["Nombre"].ToString();
+                            page.Informacion = item["Informacion"].ToString();
+                        }
+                    }
+                    return page;
+                }
+            }
+        }
+
+
+       
+
+
+
+        //---------------------------------------PUTS Modificar-------------------------------------------
 
         // PUT: api/Entity_Pagina/PutModificarPagina
         [HttpPut]
@@ -189,7 +220,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
 
         //--------------------------Home------------------------------------------------
-        // PUT: api/Entity_OfertaTemporada/UpdateHome
+        // PUT: api/Entity_Pagina/UpdateHome
         [HttpPut]
         public async Task<IActionResult> UpdateHome(Entity_PaginaHome page)
         {
@@ -202,6 +233,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                     cmd.Parameters.AddWithValue("@param_Informacion", page.Informacion);
                     cmd.Parameters.AddWithValue("@param_Imagen", page.Imagen);
 
+                
 
                     int rowsAffected = await cmd.ExecuteNonQueryAsync();
 
@@ -220,19 +252,127 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
 
         //--------------------------Como Llegar------------------------------------------------
-        // PUT: api/Entity_OfertaTemporada/UpdaHowToGet
+        // PUT: api/Entity_Pagina/UpdaHowToGet
         [HttpPut]
-        public async Task<IActionResult> UpdaHowToGet(Entity_PaginaComoLLegar page)
+        public async Task<IActionResult> UpdateHowToGet(Entity_PaginaComoLLegar page)
         {
             using (var sql = (SqlConnection)_context.Database.GetDbConnection())
             {
-                using (var cmd = new SqlCommand("SP_", sql))
+                using (var cmd = new SqlCommand("SP_Modificar_Pagina_Como_Llegar", sql))
                 {
                     await sql.OpenAsync();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@param_Pk_oferta", page.Nombre);
-                    cmd.Parameters.AddWithValue("@param_FK_Temporada", page.Titulo);
-                    cmd.Parameters.AddWithValue("@param_FK_Tipo_Habitacion", page.Informacion);
+                    cmd.Parameters.AddWithValue("@param_Informacion", page.Informacion);
+
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+        }
+
+
+        //--------------------------Sobre nosotros------------------------------------------------
+        // PUT: api/Entity_Pagina/UpdateAboutUs
+        [HttpPut]
+        public async Task<IActionResult> UpdateAboutUs(Entity_PaginaComoLLegar page)
+        {
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Modificar_Pagina_Sobre_Nosotros", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_Informacion", page.Informacion);
+
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+        }
+
+
+        //--------------------------Facilidad------------------------------------------------
+        // PUT: api/Entity_Pagina/UpdateEase
+        [HttpPut]
+        public async Task<IActionResult> UpdateEase(Entity_PaginaComoLLegar page)
+        {
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Modificar_Pagina_Facilidades", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_Informacion", page.Informacion);
+
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+        }
+
+
+        //----------------------------------------------Contactenos----------------------------------------------
+        // GET: api/Entity_Pagina/GetInformationContactUs
+        [HttpGet]
+        public async Task<Entity_PaginaHome> GetInformationContactUs()
+        {
+            Entity_PaginaHome page = new Entity_PaginaHome();
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Obtener_Informacion_Contactenos", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    using (var item = await cmd.ExecuteReaderAsync())
+                    {
+                        if (await item.ReadAsync())
+                        {
+                            page.Titulo = item["Titulo"].ToString();
+                            page.Nombre = item["Nombre"].ToString();
+                            page.Informacion = item["Informacion"].ToString();
+                        }
+                    }
+                    return page;
+                }
+            }
+        }
+
+
+        // PUT: api/Entity_Pagina/UpdateInformationContacUs
+        [HttpPut]
+        public async Task<IActionResult> UpdateInformationContacUs(Entity_Pagina page)
+        {
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Modificar_Pagina_Contactenos", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_Informacion", page.Informacion);
 
                     int rowsAffected = await cmd.ExecuteNonQueryAsync();
 
