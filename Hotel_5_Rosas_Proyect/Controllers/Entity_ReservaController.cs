@@ -34,46 +34,37 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         }
 
         //----------------------------Available Room-----------------------------
-        // GET: api/Entity_Reserva/GetAvailableRoom
-        [HttpGet]
-        public ActionResult<Entity_HabitacionReserva> GetAvailableRoom(DateTime beginDate, DateTime endDate, int roomType) {
-            using (var connection = new SqlConnection(_context.Database.GetConnectionString()))
+        // GET: api/Entity_Habitacion/GetAvaibilityRoom
+        [HttpGet("{startDate}/{endDate}/{roomType}")]
+        public ActionResult<Entity_HabitacionReserva> GetAvaibilityRoom(DateTime startDate, DateTime endDate, int roomType)
+        {
+            SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+            SqlCommand cmd = conexion.CreateCommand();
+            conexion.Open();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "[SP_Habitacion_Disponible_Cliente]";
+            cmd.Parameters.AddWithValue("@param_Fecha_Inicio", startDate);
+            cmd.Parameters.AddWithValue("@param_Fecha_Fin", endDate);
+            cmd.Parameters.AddWithValue("@param_Tipo_Habitacion", roomType);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            Entity_HabitacionReserva room = new Entity_HabitacionReserva();
+            if (reader.HasRows)
             {
-                using (var command = new SqlCommand("SP_Habitacion_Disponible", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
+                reader.Read();
+                room.PK_habitacion = (int)reader["PK_Habitacion"];
+                room.Tipo_Habitacion = (string)reader["Nombre"];
+                room.Numero_Habitacion = (int)reader["Numero_Habitacion"];
+                room.Imagen = (string)reader["Imagen"];
+                room.Descripcion = (string)reader["Descripcion"];
+                room.Tarifa = (decimal)reader["Tarifa"];
+                room.Oferta = (decimal)reader["Oferta"];
+                room.Nombre_Temporada = (string)reader["Temporada"];
 
-                    // Agregar parámetros al procedimiento almacenado
-                    command.Parameters.AddWithValue("@param_Fecha_Inicio", beginDate);
-                    command.Parameters.AddWithValue("@param_Fecha_Fin", endDate);
-                    command.Parameters.AddWithValue("@param_Tipo_Habitacion", roomType);
-                    // Agregar más parámetros según sea necesario
-
-                    // Abrir la conexión y ejecutar el procedimiento almacenado
-                    connection.Open();
-                    var reader = command.ExecuteReader();
-
-                    // Procesar los resultados del procedimiento almacenado
-                    Entity_HabitacionReserva room = new Entity_HabitacionReserva();
-                    if (reader.HasRows)
-                    {
-                        reader.Read();
-                        // Acceder a los valores de las columnas devueltas por el procedimiento almacenado
-                        room.PK_habitacion = (int)reader["PK_Habitacion"];
-                        room.Tipo_Habitacion = (string)reader["Nombre"];
-                        room.Numero_Habitacion = (int)reader["Numero_Habitacion"];
-                        room.Imagen = (string)reader["Imagen"];
-                        room.Descripcion = (string)reader["Descripcion"];
-                        room.Tarifa = (decimal)reader["Tarifa"];
-                        room.Oferta = (decimal)reader["Oferta"];
-                        room.Nombre_Temporada = (string)reader["Temporada"];
-                        // Acceder a más columnas según sea necesario
-                        return Ok(room);
-                    }
-                    reader.Close();
-                    return NotFound();
-                }
             }
+            conexion.Close();
+
+            return Ok(room);
         }
 
         //----------------------------Save Reservation-----------------------------
