@@ -48,3 +48,13 @@ C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-N
 C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\MimeKit.pdb
 C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\MimeKit.xml
 C:\Users\josep\Desktop\Universidad\Ingenieria de software\Proyecto\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\System.Buffers.xml
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\MailKit.dll
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\MimeKit.dll
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\System.Buffers.dll
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\MailKit.pdb
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\MailKit.xml
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\MimeKit.pdb
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\MimeKit.xml
+C:\Users\mario\OneDrive\Escritorio\Proyecto5Rosas\Hotel5Rosas-Net\Entities_Hotel_5_Rosas\bin\Debug\System.Buffers.xml
