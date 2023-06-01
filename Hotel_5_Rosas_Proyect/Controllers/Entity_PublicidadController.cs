@@ -97,7 +97,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         public async Task<ActionResult<Entity_Publicidad>> DeletePublicity(int PK_Publicidad)
         {
             await _context.Database
-                .ExecuteSqlInterpolatedAsync($@"EXEC SP_Eliminar_Publisidad
+                .ExecuteSqlInterpolatedAsync($@"EXEC SP_Eliminar_Publicidad
                                                   @param_PK_Publicidad={PK_Publicidad}");
 
             return Ok("Ok");
