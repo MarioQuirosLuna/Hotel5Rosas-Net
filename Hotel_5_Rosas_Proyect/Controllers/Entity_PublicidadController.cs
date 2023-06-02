@@ -100,7 +100,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                 .ExecuteSqlInterpolatedAsync($@"EXEC SP_Eliminar_Publicidad
                                                   @param_PK_Publicidad={PK_Publicidad}");
 
-            return Ok("Ok");
+            return Ok();
         }
 
 
