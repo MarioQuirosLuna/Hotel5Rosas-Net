@@ -194,7 +194,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                 .ExecuteSqlInterpolatedAsync($@"EXEC SP_Eliminar_Reserva
                                                   @param_Id={PK_Reserva}");
 
-            return Ok("Ok");
+            return Ok();
         }
 
          

@@ -54,7 +54,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                 .ExecuteSqlInterpolatedAsync($@"EXEC SP_Eliminar_Facilidad
                                                   @param_id={PK_Facilidad}");
 
-            return Ok("Ok");
+            return Ok();
         }
 
 
