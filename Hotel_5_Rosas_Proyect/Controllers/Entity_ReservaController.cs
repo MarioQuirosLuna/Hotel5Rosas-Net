@@ -62,10 +62,14 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                 room.Oferta = (decimal)reader["Oferta"];
                 room.Nombre_Temporada = (string)reader["Temporada"];
 
+                conexion.Close();
+                return Ok(room);
             }
-            conexion.Close();
+            else {               
+                conexion.Close();
+                return NotFound();
+            }
 
-            return Ok(room);
         }
 
 
