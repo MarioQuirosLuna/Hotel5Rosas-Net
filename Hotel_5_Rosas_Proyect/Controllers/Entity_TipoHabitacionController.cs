@@ -81,6 +81,10 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             }
         }
 
+
+
+        //---------------------------------Put
+
         // PUT: api/Entity_TipoHabitacion/PutRoomTypesById
         [HttpPut]
         public async Task<IActionResult> PutRoomTypesById(Entity_TipoHabitacion tipo_habitacion)
@@ -111,6 +115,10 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                 }
             }
         }
+
+       
+        
+
 
 
         private bool Entity_TipoHabitacionExists(int id)

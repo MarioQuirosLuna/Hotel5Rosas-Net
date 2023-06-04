@@ -96,6 +96,134 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         }
 
 
+        // GET: api/Entity_Habitacion/GetOneRoom
+        [HttpGet("{numero_Habitacion}")]
+        public List<Entity_Estado_Habitacion> GetOneRoom(int numero_Habitacion)
+        {
+            SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+            SqlCommand cmd = conexion.CreateCommand();
+            conexion.Open();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "[SP_Obtener_Una_Habitacion]";
+            cmd.Parameters.AddWithValue("@param_PK_Habitacion", numero_Habitacion);
+ 
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Entity_Estado_Habitacion> listRooms = new List<Entity_Estado_Habitacion>();
+
+            while (reader.Read())
+            {
+                Entity_Estado_Habitacion room = new Entity_Estado_Habitacion();
+                room.PK_Habitacion = (int)reader["PK_Habitacion"];
+                room.Numero_Habitacion = (int)reader["Numero_Habitacion"];
+                room.Nombre = (string)reader["Nombre"];
+                room.Estado_Del_Dia = (string)reader["Estado"];
+
+                listRooms.Add(room);
+            }
+            conexion.Close();
+
+            return listRooms;
+        }
+
+
+
+
+        //---------------------------PUT
+
+        // PUT: api/Entity_TipoHabitacion/UpdateRoom
+        [HttpPut]
+        public async Task<IActionResult> UpdateRoom(Entity_Habitacion room)
+        {
+            Entity_TipoHabitacion tipo = new Entity_TipoHabitacion();
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Modificar_Habitacion", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_PK_Habitacion", room.PK_Habitacion);
+                    cmd.Parameters.AddWithValue("@param_FK_Tipo_Habitacion", room.FK_Tipo_Habitacion);
+                    cmd.Parameters.AddWithValue("@param_Estado", room.Estado);
+
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok(); // Se actualizó correctamente
+                    }
+                    else
+                    {
+                        return NotFound(); // No se encontró el elemento para actualizar
+                    }
+                }
+            }
+        }
+
+
+
+        //---------------------------Post
+
+        // Post: api/Entity_TipoHabitacion/InsertRoom
+        [HttpPost]
+        public async Task<IActionResult> InsertRoom(Entity_Habitacion room)
+        {
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Insertar_Habitacion", sql))
+                {
+
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_FK_Tipo_Habitacion", room.FK_Tipo_Habitacion);
+                    cmd.Parameters.AddWithValue("@param_Estado", room.Estado);
+
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+        }
+
+
+
+        //----------------------------DELETE-----------------------------
+        // PUT: api/Entity_Facilidad/PutEliminarFacilidad
+        [HttpDelete("{PK_Habitacion}")]
+        public async Task<ActionResult<Entity_Reserva>> PutEliminarFacilidad(int PK_Habitacion)
+        {
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Eliminar_Habitacion", sql))
+                {
+
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_PK_Habitacion", PK_Habitacion);
+                   
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return NotFound("La habitacion tiene reservaciones pendientes");
+                    }
+                }
+            }
+        }
+
+
+
+
         private bool Entity_HabitacionExists(int id)
         {
             return _context.Entity_Habitacion.Any(e => e.PK_Habitacion == id);

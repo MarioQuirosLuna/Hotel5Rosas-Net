@@ -84,7 +84,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
 
 
-        // PUT: api/Entity_OfertaTemporada/PostSeasonOffer
+        // Post: api/Entity_OfertaTemporada/PostSeasonOffer
         [HttpPost]
         public async Task<IActionResult> InsertSeasonOffer(Entity_OfertaTemporada seasonOffer)
         {
