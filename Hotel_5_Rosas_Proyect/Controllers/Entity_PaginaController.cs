@@ -164,6 +164,8 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                 tipo.Nombre = (string)reader["Nombre"];
                 tipo.Titulo = (string)reader["Titulo"];
                 tipo.Informacion = (string)reader["Informacion"];
+                tipo.Latitud = (decimal)reader["Latitud"];
+                tipo.Longitud = (decimal)reader["Longitud"];
                 tipos.Add(tipo);
             }
             conexion.Close();
@@ -263,6 +265,8 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                     await sql.OpenAsync();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@param_Informacion", page.Informacion);
+                    cmd.Parameters.AddWithValue("@param_Latitud", page.Latitud);
+                    cmd.Parameters.AddWithValue("@param_Longitud", page.Longitud);
 
                     int rowsAffected = await cmd.ExecuteNonQueryAsync();
 

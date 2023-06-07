@@ -11,5 +11,7 @@ namespace Entities_Hotel_5_Rosas.Modelos
         public string Nombre { get; set; }
         public string Titulo { get; set; }
         public string Informacion { get; set; }
+        public decimal Longitud { get; set; }
+        public decimal Latitud { get; set; }
     }
 }
