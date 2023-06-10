@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Entities_Hotel_5_Rosas;
 using Hotel_5_Rosas_Proyect.Data;
 using System.Web.Http.Cors;
+using Microsoft.Data.SqlClient;
+using Entities_Hotel_5_Rosas.Modelos;
 
 namespace Hotel_5_Rosas_Proyect.Controllers
 {
@@ -38,7 +40,8 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         {
             await _context.Database
                 .ExecuteSqlInterpolatedAsync($@"EXEC SP_Modificar_Facilidad
-                                                  @param_Id={facilidad.PK_Facilidad}, @param_Nombre={facilidad.Nombre}, @param_Descripcion={facilidad.Descripcion}, @param_FK_Imagen={facilidad.FK_Imagen}");
+                                                  @param_Id={facilidad.PK_Facilidad}, @param_Nombre={facilidad.Nombre}, 
+                                                    @param_Descripcion={facilidad.Descripcion}, @param_FK_Imagen={facilidad.FK_Imagen}");
 
             return Ok(facilidad);
         }
@@ -56,6 +59,39 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
             return Ok();
         }
+
+
+        //---------------------------Post
+
+        // Post: api/Entity_Facilidad/InsertFacility
+        [HttpPost]
+        public async Task<IActionResult> InsertFacility(Facility facility)
+        {
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Insertar_Habitacion", sql))
+                {
+
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_Estado", facility.Nombre);
+                    cmd.Parameters.AddWithValue("@param_Estado", facility.Descripcion);
+                    cmd.Parameters.AddWithValue("@param_Estado", facility.Imagen);
+
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+        }
+
 
 
 
