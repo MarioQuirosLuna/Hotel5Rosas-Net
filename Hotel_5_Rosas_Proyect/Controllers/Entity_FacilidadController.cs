@@ -66,23 +66,40 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
 
         //------------------------------------Puts--------------------------------------
-        // PUT: api/Entity_Facilidad/PutModificarFacilidad
+        // Put: api/Entity_Facilidad/UpdateFaciliy
         [HttpPut]
-        public async Task<ActionResult<Entity_Facilidad>> PutModificarFacilidad(Facility facilidad)
+        public async Task<IActionResult> UpdateFaciliy(Facility facility)
         {
-            await _context.Database
-                .ExecuteSqlInterpolatedAsync($@"EXEC SP_Modificar_Facilidad
-                                                  @param_Id={facilidad.PK_Facilidad}, @param_Nombre={facilidad.Nombre}, 
-                                                    @param_Descripcion={facilidad.Descripcion}, @param_Imagen={facilidad.Imagen}");
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Modificar_Facilidad", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_Id", facility.PK_Facilidad);
+                    cmd.Parameters.AddWithValue("@param_Nombre", facility.Nombre);
+                    cmd.Parameters.AddWithValue("@param_Descripcion", facility.Descripcion);
+                    cmd.Parameters.AddWithValue("@param_Imagen", facility.Imagen);
 
-            return Ok(facilidad);
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
         }
 
 
         //----------------------------DELETE-----------------------------
 
         // PUT: api/Entity_Facilidad/PutEliminarFacilidad
-        [HttpPut("{PK_Facilidad}")]
+        [HttpDelete("{PK_Facilidad}")]
         public async Task<ActionResult<Entity_Reserva>> PutEliminarFacilidad(int PK_Facilidad)
         {
             await _context.Database
