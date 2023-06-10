@@ -14,6 +14,8 @@ namespace Entities_Hotel_5_Rosas.Modelos
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public string Imagen { get; set; }
+        
+        public int FK_Imagen { get; set; }
 
 
     }

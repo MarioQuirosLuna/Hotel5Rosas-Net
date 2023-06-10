@@ -33,15 +33,47 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         }
 
 
+        // GET: api/Entity_Facilidad/GetOneFaclity
+        [HttpGet("{PK_Facilidad}")]
+        public List<Facility> GetOneFaclity(int PK_Facilidad)
+        {
+            SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+            SqlCommand cmd = conexion.CreateCommand();
+            conexion.Open();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "[SP_Obtener_Una_Facilidad]";
+            cmd.Parameters.AddWithValue("@param_id", PK_Facilidad);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Facility> listFacilty = new List<Facility>();
+
+            while (reader.Read())
+            {
+                Facility facility = new Facility();
+                facility.PK_Facilidad = (int)reader["PK_Facilidad"];
+                facility.Nombre = (string)reader["Nombre"];
+                facility.Descripcion = (string)reader["Descripcion"];
+                facility.FK_Imagen = (int)reader["FK_Imagen"];
+                facility.Imagen = (string)reader["Imagen"];
+
+                listFacilty.Add(facility);
+            }
+            conexion.Close();
+
+            return listFacilty;
+        }
+
+
+
         //------------------------------------Puts--------------------------------------
         // PUT: api/Entity_Facilidad/PutModificarFacilidad
         [HttpPut]
-        public async Task<ActionResult<Entity_Facilidad>> PutModificarFacilidad(Entity_Facilidad facilidad)
+        public async Task<ActionResult<Entity_Facilidad>> PutModificarFacilidad(Facility facilidad)
         {
             await _context.Database
                 .ExecuteSqlInterpolatedAsync($@"EXEC SP_Modificar_Facilidad
                                                   @param_Id={facilidad.PK_Facilidad}, @param_Nombre={facilidad.Nombre}, 
-                                                    @param_Descripcion={facilidad.Descripcion}, @param_FK_Imagen={facilidad.FK_Imagen}");
+                                                    @param_Descripcion={facilidad.Descripcion}, @param_Imagen={facilidad.Imagen}");
 
             return Ok(facilidad);
         }
@@ -69,14 +101,14 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         {
             using (var sql = (SqlConnection)_context.Database.GetDbConnection())
             {
-                using (var cmd = new SqlCommand("SP_Insertar_Habitacion", sql))
+                using (var cmd = new SqlCommand("SP_Insertar_Facilidad", sql))
                 {
 
                     await sql.OpenAsync();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@param_Estado", facility.Nombre);
-                    cmd.Parameters.AddWithValue("@param_Estado", facility.Descripcion);
-                    cmd.Parameters.AddWithValue("@param_Estado", facility.Imagen);
+                    cmd.Parameters.AddWithValue("param_Nombre", facility.Nombre);
+                    cmd.Parameters.AddWithValue("param_Descripcion", facility.Descripcion);
+                    cmd.Parameters.AddWithValue("@param_Imagen", facility.Imagen);
 
                     int rowsAffected = await cmd.ExecuteNonQueryAsync();
 
