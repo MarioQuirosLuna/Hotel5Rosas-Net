@@ -68,7 +68,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         //------------------------------------Puts--------------------------------------
         // Put: api/Entity_Facilidad/UpdateFaciliy
         [HttpPut]
-        public async Task<IActionResult> UpdateFaciliy(Facility facility)
+        public async Task<IActionResult> UpdateFacility(Facility facility)
         {
             using (var sql = (SqlConnection)_context.Database.GetDbConnection())
             {
