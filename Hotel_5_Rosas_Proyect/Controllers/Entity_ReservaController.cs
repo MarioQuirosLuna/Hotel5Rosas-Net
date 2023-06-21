@@ -11,6 +11,7 @@ using System.Web.Http.Cors;
 using Entities_Hotel_5_Rosas.Modelos;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
 
 namespace Hotel_5_Rosas_Proyect.Controllers
 {
@@ -173,11 +174,38 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                         command.Parameters.AddWithValue("@param_Fecha_Fin", reserva.Fecha_Fin);
                         command.Parameters.AddWithValue("@param_Tarifa_Total", reserva.Tarifa_Total);
 
+                        // Agregar el parámetro de salida para capturar el ID retornado
+                        var outputParameter = new SqlParameter("@ReturnValue", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.ReturnValue
+                        };
+                        command.Parameters.Add(outputParameter);
+
                         // Abrir la conexión y ejecutar el procedimiento almacenado
                         connection.Open();
-                        command.ExecuteNonQuery();
+                        command.ExecuteScalar();
 
-                        return Ok();
+                        // Obtener el ID retornado por el procedimiento almacenado
+                        var reservaId = outputParameter.Value;
+
+                        //Send Email
+                        string SendEmail = "hotel5rosas@gmail.com";
+                        string password = "qoeibqtzyjikyaze";
+                        MailMessage mailMessage = new MailMessage(SendEmail, reserva.Correo, "Reservación realizada en Hotel5Rosas",
+                            "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <style>\r\n        body {\r\n            font-family: Arial, sans-serif;\r\n            font-size: 14px;\r\n        }\r\n        table {\r\n            border-collapse: collapse;\r\n            width: 100%;\r\n        }\r\n        th, td {\r\n            padding: 8px;\r\n            text-align: left;\r\n            border-bottom: 1px solid #ddd;\r\n        }\r\n        th {\r\n            background-color: #f2f2f2;\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n    <h2>Reservación realizada con éxito</h2>\r\n    <table>\r\n        <tr>\r\n            <th>Nombre</th>\r\n            <td>"+reserva.Nombre_Cliente+"</td>\r\n        </tr>\r\n        <tr>\r\n            <th>Apellidos</th>\r\n            <td>"+reserva.Apellidos_Cliente+"</td>\r\n        </tr>\r\n        <tr>\r\n            <th>Habitación</th>\r\n            <td>"+reserva.FK_Habitacion+"</td>\r\n        </tr>\r\n        <tr>\r\n            <th>Fecha de transacción</th>\r\n            <td>"+reserva.Fecha_Transaccion+"</td>\r\n        </tr>\r\n        <tr>\r\n            <th>Fecha de inicio</th>\r\n            <td>"+reserva.Fecha_Inicio+"</td>\r\n        </tr>\r\n        <tr>\r\n            <th>Fecha de fin</th>\r\n            <td>"+reserva.Fecha_Fin+"</td>\r\n        </tr>\r\n        <tr>\r\n            <th>Tarifa total</th>\r\n            <td>"+reserva.Tarifa_Total+"</td>\r\n        </tr>\r\n    </table>\r\n</body>\r\n</html>\r\n");
+                        mailMessage.IsBodyHtml = true;
+
+                        SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+                        smtpClient.EnableSsl = true;
+                        smtpClient.UseDefaultCredentials = false;
+                        smtpClient.Host = "smtp.gmail.com";
+                        smtpClient.Port = 587;
+                        smtpClient.Credentials = new System.Net.NetworkCredential(SendEmail, password);
+
+                        smtpClient.Send(mailMessage);
+                        smtpClient.Dispose();
+
+                        return Ok(reservaId);
                     }
                 }
             }
@@ -186,6 +214,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
 
 
         //----------------------------DELETE-----------------------------
