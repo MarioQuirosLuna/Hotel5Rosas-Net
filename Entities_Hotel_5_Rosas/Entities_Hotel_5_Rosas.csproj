@@ -82,6 +82,7 @@
     <Compile Include="Entity_Temporada.cs" />
     <Compile Include="Entity_TipoHabitacion.cs" />
     <Compile Include="Modelos\Entity_Tarifas.cs" />
+    <Compile Include="Modelos\Facility.cs" />
     <Compile Include="Modelos\OfertaTemporada.cs" />
     <Compile Include="Modelos\Reservacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

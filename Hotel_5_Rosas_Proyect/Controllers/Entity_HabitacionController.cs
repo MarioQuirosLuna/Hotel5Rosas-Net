@@ -68,8 +68,8 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
 
         //----------Estado de la habitacion al dia de hoy
-        [HttpGet]// GET: api/Entity_Habitacion/GetEstadoHabitacion
-        public List<Entities_Hotel_5_Rosas.Modelos.Entity_Estado_Habitacion> GetEstadoHabitacion()
+        [HttpGet]// GET: api/Entity_Habitacion/GetRoomStatusToday
+        public List<Entities_Hotel_5_Rosas.Modelos.Entity_Estado_Habitacion> GetRoomStatusToday()
         {
 
             SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
@@ -96,6 +96,36 @@ namespace Hotel_5_Rosas_Proyect.Controllers
         }
 
 
+        //----------Estado de la habitacion al dia de hoy
+        [HttpGet]// GET: api/Entity_Habitacion/GetRoomStatus
+        public List<Entities_Hotel_5_Rosas.Modelos.Entity_Estado_Habitacion> GetRoomStatus()
+        {
+
+            SqlConnection conexion = (SqlConnection)_context.Database.GetDbConnection();
+            SqlCommand cmd = conexion.CreateCommand();
+            conexion.Open();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "SP_Obtener_Estado_Habitaciones";
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Entity_Estado_Habitacion> tipos = new List<Entity_Estado_Habitacion>();
+            while (reader.Read())
+            {
+                Entity_Estado_Habitacion tipo = new Entity_Estado_Habitacion();
+                tipo.PK_Habitacion = (int)reader["PK_Habitacion"];
+                tipo.Numero_Habitacion = (int)reader["Numero_Habitacion"];
+                tipo.Nombre = (string)reader["Nombre"];
+                tipo.Estado_Del_Dia = (string)reader["Estado_Del_Dia"];
+                tipo.FK_Tipo_Habitacion = (int)reader["FK_Tipo_Habitacion"];
+                tipos.Add(tipo);
+            }
+            conexion.Close();
+
+            return tipos;
+        }
+
+
+
         // GET: api/Entity_Habitacion/GetOneRoom
         [HttpGet("{numero_Habitacion}")]
         public List<Entity_Estado_Habitacion> GetOneRoom(int numero_Habitacion)
@@ -117,6 +147,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                 room.Numero_Habitacion = (int)reader["Numero_Habitacion"];
                 room.Nombre = (string)reader["Nombre"];
                 room.Estado_Del_Dia = (string)reader["Estado"];
+                room.FK_Tipo_Habitacion = (int)reader["FK_Tipo_Habitacion"];
 
                 listRooms.Add(room);
             }
@@ -130,7 +161,7 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
         //---------------------------PUT
 
-        // PUT: api/Entity_TipoHabitacion/UpdateRoom
+        // PUT: api/Entity_Habitacion/UpdateRoom
         [HttpPut]
         public async Task<IActionResult> UpdateRoom(Entity_Habitacion room)
         {
@@ -194,9 +225,9 @@ namespace Hotel_5_Rosas_Proyect.Controllers
 
 
         //----------------------------DELETE-----------------------------
-        // PUT: api/Entity_Facilidad/PutEliminarFacilidad
+        // PUT: api/Entity_Habitacion/PutEliminarRoom
         [HttpDelete("{PK_Habitacion}")]
-        public async Task<ActionResult<Entity_Reserva>> PutEliminarFacilidad(int PK_Habitacion)
+        public async Task<ActionResult<Entity_Reserva>> PutEliminarRoom(int PK_Habitacion)
         {
             using (var sql = (SqlConnection)_context.Database.GetDbConnection())
             {
