@@ -147,7 +147,18 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             }
         }
 
+        //----------------------------DELETE-----------------------------
 
+        // PUT: api/Entity_TipoHabitacion/DeleteTipoHabitacion
+        [HttpDelete("{PK_Tipo_Habitacion}")]
+        public async Task<IActionResult> DeleteTipoHabitacion(int PK_Tipo_Habitacion)
+        {
+            await _context.Database
+                .ExecuteSqlInterpolatedAsync($@"EXEC SP_Eliminar_Tipo_Habitacion
+                                                  @param_PK_tipo_habitacion={PK_Tipo_Habitacion}");
+
+            return NoContent();
+        }
 
 
         private bool Entity_TipoHabitacionExists(int id)
