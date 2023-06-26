@@ -9,6 +9,7 @@ using Entities_Hotel_5_Rosas;
 using Hotel_5_Rosas_Proyect.Data;
 using System.Web.Http.Cors;
 using Microsoft.Data.SqlClient;
+using Entities_Hotel_5_Rosas.Modelos;
 
 namespace Hotel_5_Rosas_Proyect.Controllers
 {
@@ -116,8 +117,36 @@ namespace Hotel_5_Rosas_Proyect.Controllers
             }
         }
 
-       
-        
+        // Post: api/Entity_TipoHabitacion/InsertTypeRoom
+        [HttpPost]
+        public async Task<IActionResult> InsertTypeRoom(Entity_TipoHabitacion tipo_habitacion)
+        {
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_Insertar_Tipo_Habitacion", sql))
+                {
+
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_nombre", tipo_habitacion.Nombre);
+                    cmd.Parameters.AddWithValue("@param_Descripcion", tipo_habitacion.Descripcion);
+                    cmd.Parameters.AddWithValue("@param_Tarifa", tipo_habitacion.Tarifa);
+                    cmd.Parameters.AddWithValue("@param_Imagen", tipo_habitacion.Imagen);
+
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+        }
+
 
 
 
