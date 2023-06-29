@@ -50,11 +50,39 @@ namespace Hotel_5_Rosas_Proyect.Controllers
                 Entity_Imagen tipo = new Entity_Imagen();
                 tipo.PK_Imagen = (int)reader["PK_Imagen"];
                 tipo.Imagen = (string)reader["Imagen"];
+                tipo.show = (bool)reader["show"];
                 tipos.Add(tipo);
             }
             conexion.Close();
 
             return tipos;
+        }
+
+        //------------------------------------------ Modificar ---------------------------
+        // PUT: api/Entity_Galeria/putShowImage
+        [HttpPut("{id}")]
+        public async Task<IActionResult> putShowImage(int id)
+        {
+            using (var sql = (SqlConnection)_context.Database.GetDbConnection())
+            {
+                using (var cmd = new SqlCommand("SP_show_imagen_gallery", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@param_id", id);
+
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+                    if (rowsAffected > 0)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+            }
         }
 
         private bool Entity_GaleriaExists(int id)

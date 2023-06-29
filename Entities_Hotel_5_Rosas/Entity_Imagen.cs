@@ -18,6 +18,7 @@ namespace Entities_Hotel_5_Rosas
         public int PK_Imagen { get; set; }
         public string Imagen { get; set; }
         public int FK_Galeria { get; set; }
+        public bool show { get; set; }
 
     }
 }
